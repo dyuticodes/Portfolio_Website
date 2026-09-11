@@ -19,11 +19,13 @@ Open http://localhost:3000. Validate with `npm run typecheck` and `npm run build
 - Biography and education are in `components/Portfolio.tsx`. Content combines the supplied résumé and technical CVs; the newer résumé supplies Hanlon's completed June–July 2026 dates. Degree Curriculum Planner and MOCKOR retain brief descriptions from the original outline because the documents do not include their technical details.
 - Adjust colours and layout in `app/globals.css`.
 
-The robot is generated locally from 3D geometry, with woven armour, reflective helmet materials, articulated joints, cursor tracking, drag-to-turn and keyboard controls, a wave button, reduced-motion support, and an SVG fallback when WebGL is unavailable. It requires no external model or texture downloads.
+The robot is generated locally from 3D geometry, with sculpted carbon-fibre shells and an integrated metallic helmet, softbox lighting, articulated joints, eye-relative cursor tracking, drag-to-turn and keyboard controls, reduced-motion support, and a reserved loading area that displays only the actual model after its first rendered frame. It requires no external model or texture downloads.
+
+Gaze uses monotonic exponential filtering around a fixed reference point, with no idle sway, head roll, or body following. Run `node scripts/check-robot-motion.mjs` to verify gaze direction, rotation limits, convergence and frame-rate independence.
 
 ## Browser validation
 
-With Google Chrome installed, run `npm run build` and `npm start -- --port 3001`, then run `node scripts/check-portfolio.mjs` in another terminal. Set `PORTFOLIO_URL` to test a different local URL. The check exercises the robot, mobile navigation, contact links, résumé download, responsive widths and reduced motion; screenshots are saved in `.test-output/`.
+With Google Chrome installed, run `npm run build` and `npm start -- --port 3001`, then run `node scripts/check-portfolio.mjs` in another terminal. Set `PORTFOLIO_URL` to test a different local URL. The check exercises the robot, upward/downward gaze previews, mobile navigation, contact links, résumé download, responsive widths and reduced motion; screenshots are saved in `.test-output/`.
 
 ## Deployment
 

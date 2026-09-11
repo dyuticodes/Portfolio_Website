@@ -2,7 +2,7 @@
 export const profile = {
   email: 'dyutighosh2@gmail.com',
   linkedin: 'https://www.linkedin.com/in/dyuti-ghosh/',
-  github: '', // No GitHub URL was included in the supplied documents.
+  github: 'https://github.com/dyuticodes',
   resume: '/resume.pdf',
 };
 
@@ -36,6 +36,7 @@ export const projects = [
   { name: 'Virtual Scroll Access System', category: 'SOFTWARE / SYSTEMS', date: 'Nov 2025', description: 'A modular Java system with authentication, role-based access control, and CRUD operations. Developed in an Agile Scrum team across three sprints with automated tests and CI/CD.', tags: ['Java', 'JUnit', 'Jenkins'], visual: 'system', metric: '75%+ test coverage', url: '' },
   { name: 'Degree Curriculum Planner', category: 'SOFTWARE / EDUCATION', date: '', description: 'A software project centred on navigating degree requirements and planning an academic journey.', tags: ['Software engineering', 'Planning'], visual: 'planner', metric: '', url: '' },
   { name: 'MOCKOR', category: 'ARTIFICIAL INTELLIGENCE', date: '', description: 'An AI interviewer exploring how technology can support interview practice and preparation.', tags: ['AI', 'Interview practice'], visual: 'interview', metric: '', url: '' },
+  { name: 'WDAC 2026', category: 'DATA SCIENCE / REPORTING', date: '2026', description: 'OECD data analysis and report writing for the WDAC 2026 project, combining reproducible analysis with evidence-driven insights.', tags: ['Quarto', 'R', 'Data analysis'], visual: 'data', metric: 'OECD dataset analysis', url: 'https://github.com/dyuticodes/WDAC-2026' },
 ];
 
 export const leadership = [
