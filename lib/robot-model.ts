@@ -54,11 +54,11 @@ export function createRobot() {
   weave.minFilter = THREE.LinearMipmapLinearFilter;
   weave.generateMipmaps = true;
   weave.needsUpdate = true;
-  const carbon = new THREE.MeshPhysicalMaterial({ color: 0x17191b, metalness: .65, roughness: .4, clearcoat: .18, clearcoatRoughness: .38, bumpMap: weave, bumpScale: .012 });
-  const chrome = new THREE.MeshStandardMaterial({ color: 0xd1d3d6, metalness: 1, roughness: .105 });
-  const metal = new THREE.MeshStandardMaterial({ color: 0x292b2e, metalness: 1, roughness: .17 });
-  const black = new THREE.MeshStandardMaterial({ color: 0x080a0c, metalness: .6, roughness: .36 });
-  const glass = new THREE.MeshPhysicalMaterial({ color: 0x050607, metalness: .96, roughness: .085, clearcoat: 1, envMapIntensity: 1.3 });
+  const carbon = new THREE.MeshPhysicalMaterial({ color: 0x101214, metalness: .28, roughness: .86, clearcoat: .04, bumpMap: weave, bumpScale: .006 });
+  const chrome = new THREE.MeshStandardMaterial({ color: 0xe5ebef, metalness: 1, roughness: .18 });
+  const metal = new THREE.MeshStandardMaterial({ color: 0x7d878f, metalness: .88, roughness: .25 });
+  const black = new THREE.MeshStandardMaterial({ color: 0x07090b, metalness: .45, roughness: .68 });
+  const glass = new THREE.MeshPhysicalMaterial({ color: 0x07090b, metalness: .7, roughness: .28, clearcoat: .35, envMapIntensity: .8 });
   const led = new THREE.MeshStandardMaterial({ color: 0xf4f8f6, emissive: 0xd8e3df, emissiveIntensity: 1.2 });
   const root = new THREE.Group();
   function mesh(parent: THREE.Object3D, geometry: THREE.BufferGeometry, material: THREE.Material | THREE.Material[], at: Point) {
@@ -103,7 +103,7 @@ export function createRobot() {
   const body = new THREE.Group();
   body.position.y = 1.88;
   root.add(body);
-  armour(body, [[0,.001,.001],[.025,.3,.21],[.08,.36,.24],[.4,.41,.28],[.89,.61,.33],[1.13,.67,.34],[1.26,.51,.29],[1.37,.24,.17],[1.385,.001,.001]], [0,0,0], 2.8);
+  armour(body, [[0,.001,.001],[.035,.28,.18],[.11,.35,.22],[.45,.45,.29],[.95,.64,.34],[1.18,.7,.35],[1.26,.52,.3],[1.35,.24,.18],[1.38,.001,.001]], [0,0,0], 2.8);
   bearing(body, .17, .07, [0,1.37,0]);
   cylinder(body, .115, .28, metal, [0,1.5,0]);
   for (const side of [-1,1]) {
@@ -140,26 +140,24 @@ export function createRobot() {
   }
   const arms: THREE.Group[] = [], elbows: THREE.Group[] = [];
   for(const side of [-1,1]) {
-    const arm=new THREE.Group(); arm.position.set(side*.72,1.12,0); arm.rotation.z=side*.36; body.add(arm); arms.push(arm);
+    const arm=new THREE.Group(); arm.position.set(side*.5,1.12,.06); arm.rotation.z=side*.28; arm.rotation.x=.12; body.add(arm); arms.push(arm);
     bearing(arm,.205,.24,[0,0,0],'x');
-    for(let i=0;i<3;i++) cylinder(arm,.15-i*.023,.018,metal,[side*.135,0,0],'x');
-    armour(arm,[[-.57,.001,.001],[-.54,.15,.16],[-.32,.205,.22],[.04,.235,.24],[.15,.18,.18],[.17,.001,.001]],[side*.04,-.05,.025],2.7);
+    for(let i=0;i<3;i++) cylinder(arm,.15-i*.023,.018,metal,[side*.04,0,0],'x');
+    armour(arm,[[-.57,.001,.001],[-.54,.15,.16],[-.32,.205,.22],[.04,.235,.24],[.15,.18,.18],[.17,.001,.001]],[side*.025,-.01,.017],2.7);
     bearing(arm,.09,.22,[0,-.66,0]);
-    for(const offset of [-.075,.075]) cylinder(arm,.013,.25,chrome,[offset,-.66,.06]);
-    const elbow=new THREE.Group(); elbow.position.y=-.79; elbow.rotation.x=-.55; arm.add(elbow); elbows.push(elbow);
+    for(const offset of [-.03,.03]) cylinder(arm,.013,.25,chrome,[offset,-.66,.06]);
+    const elbow=new THREE.Group(); elbow.position.y=-.79; elbow.rotation.x=.02; elbow.rotation.z=side*.08; arm.add(elbow); elbows.push(elbow);
     bearing(elbow,.115,.26,[0,0,0],'x');
-    armour(elbow,[[-.48,.001,.001],[-.46,.115,.13],[-.3,.16,.18],[-.08,.19,.2],[.01,.14,.15],[.025,.001,.001]],[0,-.06,.02],2.7);
+    armour(elbow,[[-.48,.001,.001],[-.46,.115,.13],[-.3,.16,.18],[-.08,.19,.2],[.01,.14,.15],[.025,.001,.001]],[0,-.01,.008],2.7);
     bearing(elbow,.074,.13,[0,-.61,.025]);
-    const hand=new THREE.Group(); hand.position.set(0,-.72,.03); hand.rotation.x=-.15; hand.rotation.y=-side*.12; elbow.add(hand);
-    mesh(hand,new RoundedBoxGeometry(.215,.24,.12,8,.05),metal,[0,0,0]);
-    for(let finger=0;finger<4;finger++) {
-      const x=(finger-1.5)*.05, length=finger===0||finger===3?.09:.12;
-      ball(hand,.026,black,[x,-.105,.005]);
-      mesh(hand,new THREE.CapsuleGeometry(.022,length,6,12),metal,[x,-.145-length/2,.012]);
-      ball(hand,.022,black,[x,-.16-length,.018]);
-      const tip=mesh(hand,new THREE.CapsuleGeometry(.02,.055,6,12),metal,[x,-.205-length,.039]); tip.rotation.x=-.4;
-    }
-    const thumb=mesh(hand,new THREE.CapsuleGeometry(.032,.14,6,12),metal,[-side*.125,-.05,.065]); thumb.rotation.z=-side*.6;
+    const hand=new THREE.Group(); hand.position.set(0,-.66,.08); hand.rotation.x=-.02; hand.rotation.y=-side*.1; elbow.add(hand);
+    const palm=mesh(hand,new RoundedBoxGeometry(.28,.22,.16,8,.06),metal,[0,0,0]);
+    palm.rotation.x = .15;
+    palm.rotation.z = -side * .12;
+    const thumb=mesh(hand,new THREE.CapsuleGeometry(.038,.16,6,12),metal,[-side*.14,-.04,.08]);
+    thumb.rotation.z = -side * .7;
+    thumb.rotation.x = -.28;
+    thumb.rotation.y = -side * .15;
   }
   return {root,body,head,eyes,arms,elbows,dispose(){geometries.forEach(g=>g.dispose());[carbon,chrome,metal,black,glass,led].forEach(m=>m.dispose());weave.dispose();}};
 }
