@@ -1,0 +1,174 @@
+/* Shared visual theme. Layout and animation rules live in globals.css. */
+:root {
+  --bg: #f2f5f9;
+  --surface: #ffffff;
+  --surface-soft: #e5ebf3;
+  --ink: #14263f;
+  --ink-soft: #14263f;
+  --muted: #4d5d73;
+  --accent: #244b78;
+  --accent-strong: #183657;
+  --accent-soft: #dce8f6;
+  --line: #cdd7e4;
+  --night: #14263f;
+  --night-card: #203651;
+  --night-line: #475e7b;
+  --on-night: #ffffff;
+  --muted-night: #d4dfed;
+  --accent-night: #aecdf1;
+  --text-small: .875rem;
+  --text-body: 1rem;
+  --text-lead: clamp(1.125rem, 1.5vw, 1.375rem);
+  --text-card: clamp(1.375rem, 2vw, 1.75rem);
+  --text-section: clamp(2.125rem, 4.2vw, 3.5rem);
+  --radius-card: 18px;
+  --radius-panel: 24px;
+  --section-space: clamp(56px, 7vw, 96px);
+}
+body { color: var(--ink); font-size: var(--text-body); font-weight: 450; }
+.navbar, .hero { background: var(--bg); }
+.wordmark { font-family: var(--heading); font-size: clamp(1.25rem, 1.8vw, 1.625rem); font-weight: 550; letter-spacing: -.025em; }
+.nav-links { font-size: var(--text-body); font-weight: 600; gap: clamp(6px, 1vw, 16px); }
+.nav-links a { font-size: inherit; font-weight: inherit; }
+.nav-links a:hover, .nav-links a[aria-current] { background: var(--accent-soft); }
+.section, .section.dark-panel { padding-block: var(--section-space); }
+.section.dark-panel { border-radius: var(--radius-panel); }
+.section > h2, .section-heading h2, .contact > h2 {
+  font-family: var(--heading); font-size: var(--text-section); font-weight: 500;
+  line-height: 1.15; letter-spacing: -.035em; margin-bottom: 40px;
+}
+.section-heading { margin-bottom: 40px; }
+.section-heading h2 { margin-bottom: 0; }
+.section h2 em { font-family: inherit; font-weight: inherit; font-style: normal; color: var(--accent); }
+.heading-subtitle { font-size: var(--text-body); color: var(--muted); margin-top: 18px; }
+.section p, .section li { font-size: var(--text-body); line-height: 1.75; }
+.section h3, .section h4 { font-family: var(--heading); font-weight: 550; line-height: 1.3; letter-spacing: -.02em; }
+.section .card-heading h3, .section .project-copy h3, .section .education-card h3,
+.section .skills-panel > h3, .section .academic h3 { font-size: var(--text-card); }
+.section .skill-grid h4, .section .contact-item h3 { font-size: 1.25rem; }
+.section .card-heading .role { font-size: 1.125rem; color: var(--accent); font-weight: 550; }
+.section .card-heading .organisation, .heading-subtitle { color: var(--muted); }
+.about.dark-panel { background: var(--surface); border: 1px solid var(--line); border-top: 4px solid var(--accent); }
+.about.dark-panel h3, .about.dark-panel h4 { color: var(--ink); }
+.about.dark-panel p, .experience-card > p, .experience-card ul, .leadership-card > p, .award-card p { color: var(--muted); }
+.about-body .lead { font-size: var(--text-lead); color: var(--ink); letter-spacing: -.015em; }
+.education-card { background: var(--accent); border-radius: var(--radius-card); padding: 28px; }
+.about.dark-panel .education-card h3, .about.dark-panel .education-card p, .education-card strong, .education-card > svg { color: var(--on-night); }
+.wam-stat { border-color: #7499c4; }
+.wam-stat span, .leadership-stat strong { font-family: var(--heading); font-size: clamp(3rem, 5vw, 4rem); font-weight: 500; letter-spacing: -.04em; }
+.skill-grid > div { background: var(--surface-soft); border-radius: 12px; }
+.experience-card, .leadership-card, .award-card, .award-card:nth-child(even) {
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-card); box-shadow: none;
+}
+.experience-card, .experience-card:nth-child(2), .experience-card:nth-child(3) { border-left: 3px solid var(--accent); }
+.experience-card:hover, .leadership-card:hover, .award-card:hover,
+.leadership-card:nth-child(2):hover, .leadership-card:nth-child(3):hover {
+  background: var(--surface); box-shadow: 0 8px 24px #14263f0a; transform: translateY(-2px); border-color: var(--accent);
+}
+.experience-index { color: var(--accent); font-size: 2rem; }
+.leadership-card:nth-child(2), .leadership-card:nth-child(3) { background: var(--surface); }
+.leadership-stat, .leadership-card > p:last-child { border-color: var(--line); }
+.leadership-stat strong, .leadership-card:nth-child(2) .leadership-stat strong, .leadership-card:nth-child(3) .leadership-stat strong { color: var(--accent); }
+.leadership-stat span { color: var(--muted); font-size: var(--text-small); }
+.leadership-symbol, .leadership-card:nth-child(2) .leadership-symbol, .leadership-card:nth-child(3) .leadership-symbol { background: transparent; color: var(--accent); transform: none; }
+.award-symbol { background: var(--accent-soft); color: var(--accent); width: 56px; height: 56px; padding: 12px; border-radius: 14px; }
+.date-badge, .award-year { font-size: var(--text-small); font-weight: 550; background: var(--surface-soft); color: var(--muted); border: 0; padding: 7px 12px; }
+.projects.dark-panel, .contact.dark-panel { background: var(--night); color: var(--on-night); }
+.section-heading h2, .contact > h2, .section.dark-panel .project-copy h3, .section.dark-panel .contact-item h3 { color: var(--on-night); }
+.projects h2 em, .contact.dark-panel h2 em { color: var(--accent-night); }
+.projects.dark-panel p, .contact.dark-panel p, .contact-item span { color: var(--muted-night); }
+.project-card { background: var(--night-card); border: 1px solid var(--night-line); border-radius: var(--radius-card); }
+.project-card:hover { border-color: var(--accent-night); box-shadow: 0 8px 24px #0002; transform: translateY(-2px); }
+.project-category, .project-copy > .project-metric, .project-tags span, .contact-item span { font-size: var(--text-small); }
+.project-category { color: var(--muted-night); letter-spacing: .025em; }
+.project-copy > .project-metric, .all-projects { color: var(--accent-night); }
+.project-copy summary { color: var(--on-night); font-size: var(--text-body); }
+.project-tags span { background: var(--night-line); color: var(--on-night); }
+.button, .contact-cta { font-family: var(--body); font-size: var(--text-body); font-weight: 600; padding: 14px 20px; gap: 16px; border-radius: 12px; }
+.project-link, .contact-cta { background: var(--accent-soft); color: var(--accent-strong); box-shadow: none; }
+.project-link:hover, .contact-cta:hover { background: var(--on-night); }
+.contact-item, .contact-item:hover { border-color: var(--night-line); }
+.contact-item > svg:first-child, .contact-item > svg:last-child { color: var(--accent-night); }
+/* Project illustrations use the same three surface tones as the rest of the site. */
+.project-artwork.data, .project-artwork.engineering, .project-artwork.planner { background: var(--surface-soft); color: var(--ink); }
+.project-artwork.refit, .project-artwork.interview { background: var(--accent-soft); color: var(--accent-strong); }
+.project-artwork.system { background: var(--night-line); color: var(--on-night); }
+.data-bars i { background: var(--accent); }
+.data-bars i:nth-child(3n) { background: #7499c4; }
+.refit-poster { font-family: var(--heading); letter-spacing: -.05em; }
+.refit-poster strong { font-style: normal; }
+.socials a, .socials a:first-child { background: var(--ink); color: var(--on-night); }
+.socials a:hover { background: var(--accent); }
+footer { color: var(--muted); font-size: var(--text-small); }
+.hero h1.hero-greeting span { color: var(--ink); }
+.hero h1.hero-greeting .line-bracket, .hero h1.hero-greeting .line-number { color: var(--muted); }
+.hero-introduction p { font-size: var(--text-lead); }
+.hero-introduction .intro-role { font-size: var(--text-card); }
+.hero-introduction .intro-university { font-size: var(--text-body); }
+@media(max-width:1050px) { .nav-links { background: var(--bg); font-size: 1.125rem; } }
+@media(max-width:760px) {
+  .section > h2, .section-heading { margin-bottom: 32px; }
+  .section-heading h2 { margin-bottom: 0; }
+  .section.dark-panel { border-radius: 20px; }
+  .experience-index { font-size: 1.5rem; }
+  .award-symbol { width: 44px; height: 44px; padding: 9px; }
+  .education-card { padding: 24px; }
+}
+
+/* Larger introduction, with fluid sizing for narrow screens. */
+.hero-code-copy { max-width: 760px; }
+.hero h1.hero-greeting { font-size: clamp(2rem, 3.2vw, 3.5rem); }
+.hero-introduction { max-width: 680px; }
+.hero-introduction p { font-size: clamp(1.375rem, 2vw, 2rem); }
+.hero-introduction .intro-role { font-size: clamp(1.625rem, 2.5vw, 2.5rem); }
+.hero-introduction .intro-university { font-size: clamp(1.125rem, 1.6vw, 1.5rem); }
+
+/* Contact: centered invitation, contact details, and a message composer. */
+.section.contact.dark-panel { width: 94%; max-width: 1440px; margin: 32px auto; padding: 36px clamp(24px, 4vw, 56px); }
+.contact > h2 { text-align: center; font-size: clamp(2rem, 3.4vw, 2.75rem); margin-bottom: 18px; }
+.contact > h2::after { display: block; width: 64px; height: 3px; margin: 16px auto 0; background: var(--accent-night); }
+.contact .contact-intro { text-align: center; max-width: 720px; margin: 0 auto 32px; font-size: var(--text-body); }
+.contact-layout { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.4fr); gap: clamp(28px, 4vw, 48px); }
+.contact-details > h3, .contact-form > h3 { font-size: 1.375rem; margin: 0 0 18px; }
+.contact .contact-grid { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+.contact .contact-item { border: 0; padding: 8px 0; gap: 12px; }
+.contact .contact-item > svg:first-child { box-sizing: content-box; padding: 10px; background: var(--night-card); border-radius: 50%; }
+.contact .contact-item h3 { font-family: var(--body); font-size: var(--text-body); color: var(--muted-night); font-weight: 500; }
+.contact .contact-item span { color: var(--on-night); font-size: var(--text-body); }
+.contact-form { min-width: 0; }
+.contact-form-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.contact-form label { display: block; font-size: var(--text-small); color: var(--muted-night); margin-bottom: 14px; }
+.contact-form input, .contact-form textarea { display: block; width: 100%; margin-top: 8px; border: 1px solid var(--night-line); border-radius: 12px; background: var(--night-card); color: var(--on-night); padding: 12px 14px; font: inherit; font-size: 1rem; line-height: 1.5; }
+.contact-form textarea { min-height: 132px; resize: vertical; }
+.contact-form input::placeholder, .contact-form textarea::placeholder { color: var(--muted-night); opacity: .8; }
+.contact-form-footer { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.contact-form-footer p { font-size: var(--text-small); margin: 0; max-width: 280px; }
+.contact-send { border: 0; background: var(--accent-soft); color: var(--accent-strong); flex-shrink: 0; }
+.contact-send:hover { background: var(--on-night); }
+.contact .contact-form-status { font-size: var(--text-small); margin: 16px 0 0; }
+@media(max-width:760px) {
+  .hero h1.hero-greeting { font-size: clamp(1.375rem, 5.65vw, 2.5rem); }
+  .hero-introduction .intro-role { font-size: clamp(1.5rem, 5.9vw, 2rem); }
+  .hero-introduction p { font-size: 1.375rem; }
+  .hero-introduction .intro-university { font-size: 1.125rem; }
+  .contact-layout, .contact-form-row { grid-template-columns: minmax(0, 1fr); }
+  .contact .contact-intro { margin-bottom: 36px; }
+  .contact-form-row { gap: 0; }
+  .contact-form-footer { flex-direction: column; align-items: flex-start; }
+}
+
+/* Blue details carry the palette through the hero and keyboard states. */
+.hero::before { background-image: radial-gradient(circle, rgba(36,75,120,.2) .8px, transparent 1px); }
+.dark-panel :focus-visible { outline-color: var(--accent-night); }
+.experience-card li::marker { color: var(--accent); }
+.contact-form-status:empty { display: none; }
+@media(max-width:900px) { .contact-layout { grid-template-columns: minmax(0,1fr); } }
+@media(max-width:760px) { .section.contact.dark-panel { padding: 28px 22px; } }
+
+/* Awards read in order, with an explanation beneath each title. */
+.award-list { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+.award-card, .award-card:nth-child(even) { align-items: flex-start; padding: 28px 32px; }
+.award-card .card-heading { flex: 1; min-width: 0; }
+.award-card .award-detail { font-size: var(--text-small); color: var(--accent); margin: 0 0 12px; }
+.award-card .award-description { max-width: 85ch; margin: 0; color: var(--muted); }
+@media(max-width:760px) { .award-card, .award-card:nth-child(even) { padding: 24px 20px; } }

@@ -47,9 +47,20 @@ p{text-wrap:pretty}
 @media(max-width:760px){html{--nav-height:76px}.hero{height:auto;min-height:900px}.hero h1{font-size:clamp(64px,13vw,90px)}.hero .robot-stage spline-viewer{transform:translateX(6vw)}.wordmark{font-size:21px;letter-spacing:-.8px}.hero-description{font-size:20px}.section>h2{font-size:36px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;scroll-snap-type:none}}
 
-/* Keep the translated scene and surrounding hero on the same flat surface. */
-.hero::before{display:none}
-.navbar{border-bottom:0}
+/* Match the scene background; layer a quiet dot grid above its canvas. */
+.hero{background:#f5f1e9}
+.hero::before{
+  display:block;
+  z-index:2;
+  background:radial-gradient(circle,rgba(88,78,68,.2) .8px,transparent 1px) 0 0 / 24px 24px;
+  mask-image:linear-gradient(to right,#000 0%,rgba(0,0,0,.65) 32%,transparent 62%);
+  pointer-events:none;
+}
+.navbar{border-bottom:0;background:#f5f1e9}
+@media(max-width:1050px){.nav-links{background:#f5f1e9}}
+@media(max-width:760px){
+  .hero::before{mask-image:linear-gradient(to bottom,#000 0%,rgba(0,0,0,.5) 260px,transparent 460px)}
+}
 
 
 @media(min-width:761px){.hero-copy{transform:translateX(-11%)}.hero .robot-stage spline-viewer{transform:translateX(18vw)}}

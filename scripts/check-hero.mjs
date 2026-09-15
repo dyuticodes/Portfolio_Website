@@ -13,7 +13,7 @@ try {
  await page.locator('spline-viewer').waitFor({ timeout: 60000 });
  assert.equal(await page.locator('.hero-copy').evaluate(el=>getComputedStyle(el).opacity),'1');
  assert.equal(await page.locator('spline-viewer').getAttribute('events-target'), 'global');
- assert.equal(await page.locator('spline-viewer').getAttribute('background'), '#e9e9e8');
+ assert.equal(await page.locator('spline-viewer').getAttribute('background'), '#f2f5f9');
  await page.locator('a[href="#contact"]').first().click();
  await page.waitForTimeout(1200);
  await page.reload();
@@ -46,7 +46,7 @@ try {
  await page.locator('.wordmark').click();
  await page.waitForTimeout(1200);
  await page.screenshot({path:'.test-output/hero-refined.png'});
- assert.equal(await page.locator('.project-card').count(),7);
+ assert.equal(await page.locator('.project-card').count(),5);
  assert.equal(await page.locator('a[href="https://github.com/dyuticodes/WDAC-2026"]').count(),1);
  assert.equal(await page.locator('a[href="https://github.com/dyuticodes"]').count(),3);
  for (const width of [1440, 390]) {
@@ -59,11 +59,11 @@ try {
   }
  }
  const contrastPairs = [
-  ['.about-body .lead','#f6f5f2'], ['.skill-grid p','#eee9e1'],
-  ['.experience-card>p','#e9e9e8'], ['.leadership-card>p','#f4e6e8'],
-  ['.project-copy>p','#222a35'], ['.project-category','#222a35'],
-  ['.project-tags span','#3b4656'], ['.contact-item span','#70263a'],
-  ['.award-card p','#f5ecd8'], ['.date-badge','#eeedea']
+  ['.about-body .lead','#ffffff'], ['.skill-grid p','#e5ebf3'],
+  ['.experience-card>p','#ffffff'], ['.leadership-card>p','#ffffff'],
+  ['.project-copy>p','#203651'], ['.project-category','#203651'],
+  ['.project-tags span','#475e7b'], ['.contact-item span','#14263f'],
+  ['.award-card p','#ffffff'], ['.date-badge','#e5ebf3']
  ];
  const luminance = rgb => rgb.map(v=>{v/=255;return v<=.04045?v/12.92:((v+.055)/1.055)**2.4}).reduce((sum,v,i)=>sum+v*[.2126,.7152,.0722][i],0);
  for(const [selector,bg] of contrastPairs){
@@ -74,8 +74,8 @@ try {
   assert.ok(ratio>=4.5, `${selector} contrast ${ratio}`);
  }
  await page.setViewportSize({width:1440,height:1000});
- assert.equal(await page.locator('.nav-links').evaluate(el=>getComputedStyle(el).fontWeight),'700');
- assert.equal(await page.locator('.nav-links').evaluate(el=>getComputedStyle(el).fontSize),'20px');
+ assert.equal(await page.locator('.nav-links').evaluate(el=>getComputedStyle(el).fontWeight),'600');
+ assert.equal(await page.locator('.nav-links').evaluate(el=>getComputedStyle(el).fontSize),'16px');
  await page.locator('.wordmark').click();
  await page.locator('spline-viewer').locator('canvas').waitFor({state:'attached',timeout:60000});
  assert.equal(await page.locator('.robot-visual').evaluate(el=>getComputedStyle(el).opacity),'1');

@@ -35,8 +35,6 @@ export const projects = [
   { name: 'Re:Fit', category: 'FULL-STACK / HACKATHON', date: 'Sep 2025', description: 'A wardrobe-sharing platform built in 24 hours at the COMM-STEM × Canva Hackathon, with item uploads, real-time messaging, and community forums.', tags: ['React', 'Python', 'Figma'], visual: 'refit', metric: 'Winner · Most Aesthetic Video Pitch', url: '' },
   { name: 'New York House Prices', category: 'DATA SCIENCE / MODELLING', date: 'Nov 2025', description: 'Regression and random forest models trained on 1,734 records. Combined preprocessing, feature engineering, AIC/BIC feature selection, and 10-fold cross-validation to investigate housing price drivers.', tags: ['R', 'Regression', 'Random forest'], visual: 'data', metric: 'R² ≈ 0.64 · 1,734 records', url: '' },
   { name: 'Virtual Scroll Access System', category: 'SOFTWARE / SYSTEMS', date: 'Nov 2025', description: 'A modular Java system with authentication, role-based access control, and CRUD operations. Developed in an Agile Scrum team across three sprints with automated tests and CI/CD.', tags: ['Java', 'JUnit', 'Jenkins'], visual: 'system', metric: '75%+ test coverage', url: '' },
-  { name: 'Degree Curriculum Planner', category: 'SOFTWARE / EDUCATION', date: '', description: 'A software project centred on navigating degree requirements and planning an academic journey.', tags: ['Software engineering', 'Planning'], visual: 'planner', metric: '', url: '' },
-  { name: 'MOCKOR', category: 'ARTIFICIAL INTELLIGENCE', date: '', description: 'An AI interviewer exploring how technology can support interview practice and preparation.', tags: ['AI', 'Interview practice'], visual: 'interview', metric: '', url: '' },
 ];
 
 export const leadership = [
@@ -47,8 +45,8 @@ export const leadership = [
 ];
 
 export const awards = [
-  { name: 'Dalyell Scholar', detail: 'University of Sydney' },
-  { name: 'Vice-Chancellor’s International Scholarship', detail: 'University of Sydney' },
-  { name: 'Sydney International Student Award', detail: 'University of Sydney' },
-  { name: 'Most Aesthetic Video Pitch', detail: 'Re:Fit · COMM-STEM × Canva Hackathon · 2025' },
+  { name: 'Vice-Chancellor’s International Scholarship', detail: 'University of Sydney', description: 'A scholarship awarded on academic merit to high-achieving international students commencing a coursework degree at the University of Sydney.' },
+  { name: 'Sydney International Student Award', detail: 'University of Sydney', description: 'An award celebrating the talent and diversity of international students, with a University contribution towards tuition fees for the duration of their course.' },
+  { name: 'Best Pitch & Most Aesthetic UI/UX', detail: 'Re:Fit · COMM-STEM × Canva Hackathon · 2025', description: 'Recognised for the best UI/UX design and pitch video for Re:Fit, a wardrobe-sharing platform built during the 24-hour hackathon.' },
+  { name: 'Dalyell Scholar', detail: 'University of Sydney', description: 'An enrichment program for high-achieving students, offering interdisciplinary study, tailored mentoring, and professional development opportunities.' }
 ];

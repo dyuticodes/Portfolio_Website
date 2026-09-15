@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import '@fontsource-variable/manrope';
 import '@fontsource-variable/outfit';
 import './globals.css';
+import './theme.css';
 
 export const metadata: Metadata = {
   title: 'Dyuti Ghosh — Software Engineering & Data Science',

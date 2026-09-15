@@ -9,7 +9,7 @@ export default function RobotHero({ sceneUrl }: { sceneUrl?: string }) {
         url: sceneUrl,
         loading: 'eager',
         'events-target': 'global',
-        background: '#e9e9e8',
+        background: '#f2f5f9',
       })}
     </div>
   </div>;
