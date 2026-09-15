@@ -7,15 +7,30 @@ import RobotHero from './RobotHero';
 import ProjectArtwork from './ProjectArtwork';
 
 const sections = ['About', 'Experience', 'Projects', 'Leadership', 'Awards', 'Contact'];
+const greeting = 'Hello, I am Dyuti.';
 const heroSceneUrl = 'https://prod.spline.design/h12OeYmStwyAO-f6/scene.splinecode';
 
 
 export default function Portfolio() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [active, setActive] = useState('');
+  const [typedText, setTypedText] = useState('');
   useLayoutEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
   }, []);
+
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setTypedText(greeting);
+      return;
+    }
+    if (typedText.length >= greeting.length) return;
+    const timer = setTimeout(() => {
+      setTypedText(greeting.slice(0, typedText.length + 1));
+    }, 90);
+    return () => clearTimeout(timer);
+  }, [typedText]);
+
   useEffect(() => {
     const observer = new IntersectionObserver(entries => {
       for (const entry of entries) if (entry.isIntersecting) setActive(entry.target.id);
@@ -34,7 +49,24 @@ export default function Portfolio() {
     </header>
     <main id="main">
       <section id="home" className="hero">
-        <div className="hero-copy"><h1>Hi,<br/>I am <span>Dyuti.</span></h1><p className="hero-description">Software Engineering student<br/>specialising in Engineering Data Science</p><p className="university">@ The University of Sydney</p></div>
+        <div className="hero-copy hero-code-copy">
+          <div className="hero-code-stage">
+            <h1 className="hero-greeting" aria-label={greeting}>
+              <span className="line-number" aria-hidden="true">01</span>
+              <span className="line-core" aria-hidden="true">
+                <span className="line-bracket">&lt;</span>
+                <span className="line-text">{typedText}</span>
+                {typedText.length < greeting.length && <span className="typing-cursor">|</span>}
+                <span className="line-bracket">&gt;</span>
+              </span>
+            </h1>
+            <div className={`hero-introduction${typedText === greeting ? ' is-visible' : ''}`}>
+              <p className="intro-role">Software Engineering Student.</p>
+              <p>Specialising in Data Science.</p>
+              <p className="intro-university">At the University of Sydney.</p>
+            </div>
+          </div>
+        </div>
         <RobotHero sceneUrl={heroSceneUrl} />
       </section>
       <section id="about" className="section dark-panel about">
